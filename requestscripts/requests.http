@@ -1,29 +1,68 @@
-#Bad request that generates 404
-GET http://localhost:8080/bad
+###
+# ----------- All the requests in this section will fail with 401 due to not having credentials (Start) -----------
+
+#Bad request that generates 401 (due to lack of credentials)
+GET http://localhost:8080/api/bad
 
 ###
 
-#Bad request that generates 405
-GET http://localhost:8080/post
+#Bad request that generates 401 (due to lack of credentials)
+GET http://localhost:8080/api/post
 
 ###
 
-GET http://localhost:8080/get
+GET http://localhost:8080/api/get
 
 ###
 
-POST http://localhost:8080/post
+POST http://localhost:8080/api/post
 
 ###
 
-PUT http://localhost:8080/put
+PUT http://localhost:8080/api/put
 
 ###
 
-DELETE http://localhost:8080/delete
+DELETE http://localhost:8080/api/delete
+
+# ----------- All the requests in this section will fail with 401 due to not having credentials (End) -----------
+###
+# ----------- All the requests in this section will pass security (Start) -----------
+
+#Bad request that generates 404 (as endpoint does not exist)
+GET http://localhost:8080/api/bad
+Authorization: Basic user pass
 
 ###
 
+#Bad request that generates 405 (as wrong http method for endpoint)
+GET http://localhost:8080/api/post
+Authorization: Basic user pass
+
+###
+
+GET http://localhost:8080/api/get
+Authorization: Basic user pass
+
+###
+
+POST http://localhost:8080/api/post
+Authorization: Basic user pass
+
+###
+
+PUT http://localhost:8080/api/put
+Authorization: Basic user pass
+
+###
+
+DELETE http://localhost:8080/api/delete
+Authorization: Basic user pass
+
+# ----------- All the requests in this section will pass security (End) -----------
+###
+
+#Call the actuator httptrace endpoint (not protected by security)
 GET http://localhost:8080/actuator/httptrace
 
 ###

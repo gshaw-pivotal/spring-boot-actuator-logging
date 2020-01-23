@@ -2,30 +2,28 @@ package gs.al.actuatorlogging.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "/api")
 public class RestController {
 
-    @GetMapping("get")
+    @GetMapping("/get")
     public ResponseEntity getEndpoint() {
         return ResponseEntity.ok("Received your GET request");
     }
 
-    @PostMapping("post")
+    @PostMapping("/post")
     public ResponseEntity postEndpoint() {
         return ResponseEntity.ok("Received your POST request");
     }
 
-    @PutMapping("put")
+    @PutMapping("/put")
     public ResponseEntity putEndpoint() {
         return ResponseEntity.ok("Received your PUT request");
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping("/delete")
     public ResponseEntity deleteEndpoint() {
         return ResponseEntity.ok("Received your DELETE request");
     }
