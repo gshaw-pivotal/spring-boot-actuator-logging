@@ -1,0 +1,29 @@
+#Bad request that generates 404
+GET http://localhost:8080/bad
+
+###
+
+#Bad request that generates 405
+GET http://localhost:8080/post
+
+###
+
+GET http://localhost:8080/get
+
+###
+
+POST http://localhost:8080/post
+
+###
+
+PUT http://localhost:8080/put
+
+###
+
+DELETE http://localhost:8080/delete
+
+###
+
+GET http://localhost:8080/actuator/httptrace
+
+###
