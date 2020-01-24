@@ -1,7 +1,6 @@
 package gs.al.actuatorlogging;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -9,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 public class ActuatorLogging {
 
     @Bean
-    public HttpTraceRepository getHttpTraceRepository() {
+    public TraceRepository getHttpTraceRepository() {
         return new TraceRepository();
     }
 

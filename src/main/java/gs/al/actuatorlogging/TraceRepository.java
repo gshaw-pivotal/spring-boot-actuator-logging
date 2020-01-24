@@ -5,6 +5,7 @@ import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TraceRepository implements HttpTraceRepository {
 
@@ -18,5 +19,17 @@ public class TraceRepository implements HttpTraceRepository {
     @Override
     public void add(HttpTrace trace) {
         traceList.add(trace);
+    }
+
+    public List<CustomHttpTrace> findAllCustom() {
+        List<CustomHttpTrace> customHttpTraceList = new ArrayList<>();
+        findAll().forEach(httpTrace -> {
+            CustomHttpTrace customTrace = new CustomHttpTrace();
+            customTrace.setHttpTrace(httpTrace);
+            customTrace.setUuid(UUID.randomUUID().toString());
+            customHttpTraceList.add(customTrace);
+        });
+
+        return customHttpTraceList;
     }
 }
