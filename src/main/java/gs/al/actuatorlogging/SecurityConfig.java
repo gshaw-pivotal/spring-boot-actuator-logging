@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .addFilterAfter(traceFilter, SecurityContextPersistenceFilter.class)
+                .addFilterBefore(traceFilter, SecurityContextPersistenceFilter.class)
                 .httpBasic()
                 .and()
                 .authorizeRequests()
